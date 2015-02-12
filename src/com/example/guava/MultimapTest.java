@@ -34,7 +34,8 @@ public class MultimapTest extends CommonLoginLog {
 		// 키 검색시 여러개의 값이 리턴
 		Collection<LoginLog> ids = multimap.get("aaa");
 		for (LoginLog loginLog : ids) {
-			LOGGER.debug(loginLog.toString());
+			LOGGER.debug("LoginLog [id=" + loginLog.id + ", no=" + loginLog.no + ", name="
+					+ loginLog.name + ", age=" + loginLog.age + "]");
 		}
 	}
 }

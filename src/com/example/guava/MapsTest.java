@@ -31,13 +31,13 @@ public class MapsTest extends CommonMember {
 		hashMap.put("bbb", "나나나");
 		LOGGER.debug(hashMap.toString());
 		
-		// 멀티스레드에 안전한 리스트 생성
+		// 멀티스레드에 안전한 Map 생성
 		Map<String, Object> concurrentMap = Maps.newConcurrentMap();
 		concurrentMap.put("aaa", "가가가");
 		concurrentMap.put("bbb", "나나나");
 		LOGGER.debug(concurrentMap.toString());
 		
-		// enum을 키로 가지는 맵 생성
+		// enum을 키로 가지는 Map 생성
 		EnumMap<SomeEnum, Integer> enumMap = Maps.newEnumMap(SomeEnum.class);
 		enumMap.put(SomeEnum.SOME_INSTANCE, 1);
 		LOGGER.debug(enumMap.toString());
@@ -45,13 +45,13 @@ public class MapsTest extends CommonMember {
 		int expectedSize = 10;
 		Maps.newHashMapWithExpectedSize(expectedSize);
 		
-		// 참조가 없을경우 버려지는 맵 생성
+		// 참조가 없을경우 버려지는 Map 생성
 		Maps.newIdentityHashMap();
 		
-		// 순번이 있는 맵 생성
+		// 순번이 있는 Map 생성
 		Maps.newLinkedHashMap();
 		
-		// 추가시 정렬이 되는 맵 생성
+		// 추가시 정렬이 되는 Map 생성
 		Maps.newTreeMap();
 	}
 	
