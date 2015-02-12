@@ -19,6 +19,8 @@ public class MultisetTest extends CommonLoginLog {
 	public void test000() {
 		LOGGER.debug("Multiset 만들기");
 		
+		LOGGER.debug("중복이 되는 Set");
+		
 		List<String> loginLogIds = dao.listIdAll();
 		Multiset<String> idMultiset = HashMultiset.create();
 		

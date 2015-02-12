@@ -11,6 +11,8 @@ import org.apache.commons.dbcp.PoolingDriver;
 import org.apache.commons.pool.impl.GenericObjectPool;
 import org.apache.log4j.Logger;
 
+import com.example.Config;
+
 /**
  * @author gimbyeongsu
  *
@@ -83,10 +85,10 @@ public class ConnectionPoolManager {
 	private final boolean testWhileIdle;
 
 	private ConnectionPoolManager() {
-		driverClassName = "com.mysql.jdbc.Driver";
-		url = "jdbc:mysql://localhost/test?useUnicode=true&characterEncoding=UTF-8&autoReconnect=true";
-		userName = "root";
-		password = "";
+		driverClassName = Config.DB_DRIVER_CLASS_NAME;
+		url = Config.DB_URL;
+		userName = Config.DB_USER_NAME;
+		password = Config.DB_PASSWORD;
 		defaultReadOnly = false;
 		defaultAutoCommit = false;
 		maxActive = 10;

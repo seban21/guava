@@ -12,7 +12,7 @@ import com.google.common.collect.Multimap;
 
 /**
  * @author gimbyeongsu
- *
+ * com.google.common.collect.Multimap 클래스 관련
  */
 public class MultimapTest extends CommonLoginLog {
 	private final static Logger LOGGER = Logger.getLogger(MultimapTest.class);
@@ -20,6 +20,8 @@ public class MultimapTest extends CommonLoginLog {
 	@Test
 	public void test000() {
 		LOGGER.debug("Multimap 만들기");
+		
+		LOGGER.debug("중복이 되는 키를 가지는 Map 생성");
 		
 		List<LoginLog> loginLogs = dao.listAll();
 		Multimap<String, LoginLog> multimap = ArrayListMultimap.create();
@@ -29,6 +31,7 @@ public class MultimapTest extends CommonLoginLog {
 			multimap.put(id, loginLog);
 		}
 		
+		// 키 검색시 여러개의 값이 리턴
 		Collection<LoginLog> ids = multimap.get("aaa");
 		for (LoginLog loginLog : ids) {
 			LOGGER.debug(loginLog.toString());

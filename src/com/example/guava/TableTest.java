@@ -12,7 +12,7 @@ import com.google.common.collect.Table;
 
 /**
  * @author gimbyeongsu
- *
+ * com.google.common.collect.Table 클래스 관련
  */
 public class TableTest extends CommonLoginLog {
 	private final static Logger LOGGER = Logger.getLogger(TableTest.class);
@@ -20,6 +20,8 @@ public class TableTest extends CommonLoginLog {
 	@Test
 	public void test000() {
 		LOGGER.debug("Table 만들기");
+		
+		LOGGER.debug("테이블 형태의 collection");
 		
 		List<LoginLog> loginLogs = dao.listAll();
 		Table<String, Integer, LoginLog> table = HashBasedTable.create();
@@ -31,10 +33,10 @@ public class TableTest extends CommonLoginLog {
 		}
 		
 		for (String key : table.rowKeySet()) {
-			LOGGER.info("id:" + key);
+			LOGGER.debug("id:" + key);
 			for (Entry<Integer, LoginLog> row : table.row(key).entrySet()) {
 				LoginLog loginLog = row.getValue();
-				LOGGER.info("LoginLog no:" + row.getKey() + " name:" + loginLog.name + " age:"
+				LOGGER.debug("LoginLog no:" + row.getKey() + " name:" + loginLog.name + " age:"
 						+ loginLog.age);
 			}
 		}

@@ -14,18 +14,20 @@ import com.google.common.cache.LoadingCache;
 
 /**
  * @author gimbyeongsu
- *
+ * com.google.common.cache 패키지 관련
  */
 public class InMemoryCacheTest extends CommonMember {
 	private final static Logger LOGGER = Logger.getLogger(InMemoryCacheTest.class);
 	
 	private final static int CACHE_ITEM_SIZE = 10;
-	private final static int CACHE_DURATION_SEC = 3;
+	private final static int CACHE_DURATION_SEC = 3; // cache 업데이트 간격 시간의 초
 	
 	@Test
 	public void test000() {
 		LOGGER.debug("Cache");
 
+		LOGGER.debug("키값 파라메타를 넘기는 형태의 cache");
+		
 		LoadingCache<String, String> cacheMember = CacheBuilder.newBuilder()
 				.maximumSize(CACHE_ITEM_SIZE)
 				.refreshAfterWrite(CACHE_DURATION_SEC, TimeUnit.SECONDS)
@@ -52,6 +54,8 @@ public class InMemoryCacheTest extends CommonMember {
 	public void test001() {
 		LOGGER.debug("Cache");
 		
+		LOGGER.debug("키가 없는 형태의 cache (NONE문자열을 공통적으로 넘긴다.)");
+		
 		LoadingCache<String, List<Member>> cacheMembers = CacheBuilder
 				.newBuilder().maximumSize(CACHE_ITEM_SIZE)
 				.refreshAfterWrite(CACHE_DURATION_SEC, TimeUnit.SECONDS)
@@ -76,6 +80,8 @@ public class InMemoryCacheTest extends CommonMember {
 	@Test
 	public void test002() {
 		LOGGER.debug("Cache");
+		
+		LOGGER.debug("cache 업데이트 간격 확인");
 		
 		LoadingCache<String, List<Member>> cacheMembers = CacheBuilder
 				.newBuilder().maximumSize(CACHE_ITEM_SIZE)
