@@ -28,6 +28,7 @@ public class MultisetTest extends CommonLoginLog {
 			idMultiset.add(id);
 		}
 		
+		// 해당 키에 해당하는 갯수 가져오기
 		LOGGER.debug("count:" + idMultiset.count("aaa"));
 	}
 }

@@ -27,17 +27,17 @@ public class TableTest extends CommonLoginLog {
 		Table<String, Integer, LoginLog> table = HashBasedTable.create();
 		
 		for (LoginLog loginLog : loginLogs) {
-			String id = loginLog.id;
-			int no = loginLog.no;
-			table.put(id, no, loginLog);
+			String rowKey = loginLog.id;
+			int columnKey = loginLog.no;
+			table.put(rowKey, columnKey, loginLog);
 		}
 		
-		for (String key : table.rowKeySet()) {
-			LOGGER.debug("id:" + key);
-			for (Entry<Integer, LoginLog> row : table.row(key).entrySet()) {
-				LoginLog loginLog = row.getValue();
-				LOGGER.debug("LoginLog no:" + row.getKey() + " name:" + loginLog.name + " age:"
-						+ loginLog.age);
+		for (String rowKey : table.rowKeySet()) {
+			LOGGER.debug("rowKey id:" + rowKey);
+			for (Entry<Integer, LoginLog> row : table.row(rowKey).entrySet()) {
+				int columnKey = row.getKey();
+				LoginLog val = row.getValue();
+				LOGGER.debug("LoginLog no:" + columnKey + " name:" + val.name + " age:" + val.age);
 			}
 		}
 	}
